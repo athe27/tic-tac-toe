@@ -26,7 +26,6 @@ const gameBoard = (() => {
     }
 
     const verifyMove = function(point) {
-        console.log(point)
         if (this.board[point[1]][point[0]] === "") {
             return true;
         }
@@ -94,7 +93,8 @@ const gameBoard = (() => {
         if (winner !== undefined) {
             resultText.innerHTML = winner;
         }
-        if (!gameOver && !player1Turn) {
+
+        if (!this.gameOver && !player1Turn) {
             this.player2.selectMove()
         }
         displayController.displayBoard()
@@ -123,7 +123,6 @@ const player = (isAI) => {
             while (!gameBoard.verifyMove(AIMove)) {
                 AIMove = [Math.floor(Math.random()*3), Math.floor(Math.random()*3)];
             }
-            console.log(this)
             gameBoard.placeMarker(this, AIMove);
         }
     } else {
