@@ -58,11 +58,11 @@ const gameBoard = (() => {
             }
         }
 
-        draw = false;
+        draw = true;
         for (let y = 0; y < gameBoard.board.length; y++) {
             for (let x = 0; x < gameBoard.board[y].length; x++) {
                 if (gameBoard.board[y][x] === "") {
-                    draw = true
+                    draw = false
                 }
             }
         }
@@ -91,7 +91,7 @@ const gameBoard = (() => {
         }
 
         let winner = this.checkForWin()
-        if (winner !== "undefined") {
+        if (winner !== undefined) {
             resultText.innerHTML = winner;
         }
         if (!gameOver && !player1Turn) {
